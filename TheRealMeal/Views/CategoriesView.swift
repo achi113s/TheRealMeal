@@ -26,7 +26,8 @@ struct CategoriesView: View {
                                     .frame(width: 50, height: 50)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else if imagePhase.error != nil {
-                                Text("Could not load image.")
+                                Image(systemName: "fork.knife")
+                                    .frame(width: 50, height: 50)
                             } else {
                                 ProgressView()
                             }
@@ -41,7 +42,7 @@ struct CategoriesView: View {
             }
             .task {
                 if let url = url {
-                    let downloaded: Categories? = await Utilities.fetchFromTheMealDB(url: url)
+                    let downloaded: Categories? = await Utilities.fetch(type: Categories.self, from: url)
                     if let downloaded = downloaded {
                         if onlyShowDesserts {
                             categories = downloaded.categories.filter({ $0.categoryName == "Dessert" })

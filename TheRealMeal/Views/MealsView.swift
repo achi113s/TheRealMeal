@@ -27,7 +27,7 @@ struct MealsView: View {
                                 .frame(width: 50, height: 50)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         } else if imagePhase.error != nil {
-                            Image(systemName: "basket")
+                            Image(systemName: "fork.knife")
                                 .frame(width: 50, height: 50)
                         } else {
                             ProgressView()
@@ -39,7 +39,7 @@ struct MealsView: View {
         }
         .task {
             if let url = url {
-                let downloaded: Meals? = await Utilities.fetchFromTheMealDB(url: url)
+                let downloaded: Meals? = await Utilities.fetch(type: Meals.self, from: url)
                 if let downloaded = downloaded {
                     meals = downloaded.meals.sorted()
                 }
