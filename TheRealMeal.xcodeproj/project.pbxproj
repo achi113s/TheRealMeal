@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		441865092A5327B3001E0BDF /* TheRealMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865082A5327B3001E0BDF /* TheRealMealApp.swift */; };
-		4418650B2A5327B3001E0BDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4418650A2A5327B3001E0BDF /* ContentView.swift */; };
+		4418650B2A5327B3001E0BDF /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4418650A2A5327B3001E0BDF /* CategoriesView.swift */; };
 		4418650D2A5327B4001E0BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4418650C2A5327B4001E0BDF /* Assets.xcassets */; };
 		441865102A5327B4001E0BDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4418650F2A5327B4001E0BDF /* Preview Assets.xcassets */; };
 		4418651A2A5327B4001E0BDF /* TheRealMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865192A5327B4001E0BDF /* TheRealMealTests.swift */; };
 		441865242A5327B4001E0BDF /* TheRealMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865232A5327B4001E0BDF /* TheRealMealUITests.swift */; };
 		441865262A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865252A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift */; };
+		4434628F2A532DE100F59043 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4434628E2A532DE100F59043 /* Models.swift */; };
+		443462912A53346900F59043 /* MealsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443462902A53346900F59043 /* MealsController.swift */; };
+		443462932A53406A00F59043 /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443462922A53406A00F59043 /* MealsView.swift */; };
+		445C53282A534979000CF2BB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C53272A534979000CF2BB /* Utilities.swift */; };
+		445C532C2A534DC0000CF2BB /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C532B2A534DC0000CF2BB /* MealDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,7 @@
 /* Begin PBXFileReference section */
 		441865052A5327B3001E0BDF /* TheRealMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheRealMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		441865082A5327B3001E0BDF /* TheRealMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealApp.swift; sourceTree = "<group>"; };
-		4418650A2A5327B3001E0BDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4418650A2A5327B3001E0BDF /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		4418650C2A5327B4001E0BDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4418650F2A5327B4001E0BDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		441865152A5327B4001E0BDF /* TheRealMealTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheRealMealTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +49,11 @@
 		4418651F2A5327B4001E0BDF /* TheRealMealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheRealMealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		441865232A5327B4001E0BDF /* TheRealMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealUITests.swift; sourceTree = "<group>"; };
 		441865252A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4434628E2A532DE100F59043 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Models.swift; path = ../../../Models.swift; sourceTree = "<group>"; };
+		443462902A53346900F59043 /* MealsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsController.swift; sourceTree = "<group>"; };
+		443462922A53406A00F59043 /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
+		445C53272A534979000CF2BB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		445C532B2A534DC0000CF2BB /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +104,14 @@
 		441865072A5327B3001E0BDF /* TheRealMeal */ = {
 			isa = PBXGroup;
 			children = (
+				4434628D2A532DD200F59043 /* Models */,
 				441865082A5327B3001E0BDF /* TheRealMealApp.swift */,
-				4418650A2A5327B3001E0BDF /* ContentView.swift */,
+				4418650A2A5327B3001E0BDF /* CategoriesView.swift */,
+				443462922A53406A00F59043 /* MealsView.swift */,
 				4418650C2A5327B4001E0BDF /* Assets.xcassets */,
 				4418650E2A5327B4001E0BDF /* Preview Content */,
+				445C53272A534979000CF2BB /* Utilities.swift */,
+				445C532B2A534DC0000CF2BB /* MealDetailView.swift */,
 			);
 			path = TheRealMeal;
 			sourceTree = "<group>";
@@ -125,6 +139,15 @@
 				441865252A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift */,
 			);
 			path = TheRealMealUITests;
+			sourceTree = "<group>";
+		};
+		4434628D2A532DD200F59043 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4434628E2A532DE100F59043 /* Models.swift */,
+				443462902A53346900F59043 /* MealsController.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4418650B2A5327B3001E0BDF /* ContentView.swift in Sources */,
+				445C53282A534979000CF2BB /* Utilities.swift in Sources */,
+				443462912A53346900F59043 /* MealsController.swift in Sources */,
+				4434628F2A532DE100F59043 /* Models.swift in Sources */,
+				445C532C2A534DC0000CF2BB /* MealDetailView.swift in Sources */,
+				443462932A53406A00F59043 /* MealsView.swift in Sources */,
+				4418650B2A5327B3001E0BDF /* CategoriesView.swift in Sources */,
 				441865092A5327B3001E0BDF /* TheRealMealApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
