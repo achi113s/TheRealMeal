@@ -13,13 +13,45 @@ struct MealDetailView: View {
     @StateObject var mealDetailViewModel: MealDetailViewModel
     
     var body: some View {
-        VStack {
-            Text(mealDetailViewModel.mealFullDesc?.mealName ?? mealName)
+        ScrollView {
+            VStack(alignment: .leading) {
+                AsyncImage(url: mealDetailViewModel.mealFullDesc?.mealThumbnailURL) { imagePhase in
+                    if let image = imagePhase.image {
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: .infinity, maxHeight: 200)
+                    } else if imagePhase.error != nil {
+                        Image(systemName: "fork.knife")
+                            .frame(width: Utilities.thumbnailSize, height: Utilities.thumbnailSize)
+                    } else {
+                        ProgressView()
+                    }
+                }
+                .padding(.bottom)
+                .accessibilityLabel("Image of \(mealName)")
+                
+                if let mealFullDesc = mealDetailViewModel.mealFullDesc {
+                    Text("Ingredients")
+                        .font(.title2)
+                        .underline()
+                    ForEach(mealFullDesc.ingredientsWithMeasurements, id: \.self) { item in
+                        Text("• \(item)")
+                    }
+                    
+                    Text("\nInstructions")
+                        .font(.title2)
+                        .underline()
+                    Text("\(mealFullDesc.instructions)")
+                }
+            }
         }
+        .padding([.leading, .trailing])
         .navigationTitle(mealName)
         .task {
             await mealDetailViewModel.fetchMealFullDesc()
         }
+        
     }
     
     init(mealID: String, mealName: String) {

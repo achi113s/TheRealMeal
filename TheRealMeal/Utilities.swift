@@ -11,6 +11,24 @@ struct Utilities {
     /// Dimension for the thumbnail images.
     static let thumbnailSize: CGFloat = 50
     
+    /// Concatenates the elements of two arrays of strings of length n into a single array of length n using a given separator.
+    /// - Parameter firstArray: [String]
+    /// - Parameter secondArray: [String]
+    /// - Parameter with separator: String
+    static public func concatenate(firstArray: [String], secondArray: [String], with separator: String) -> [String] {
+        let firstCount = firstArray.count
+        guard firstCount == secondArray.count else { return [String]() }
+        
+        var newArr = [String]()
+        
+        for i in stride(from: 0, to: firstCount, by: 1) {
+            let newStr = firstArray[i] + separator + secondArray[i]
+            newArr.append(newStr)
+        }
+        
+        return newArr
+    }
+    
     /// A generic utility function for fetching data from an API endpoint.
     /// - Parameter type: A type, T, that conforms to the Decodable protocol.
     /// - Parameter url: The URL of the API endpoint.

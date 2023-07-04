@@ -192,6 +192,10 @@ struct MealFullDesc: Identifiable, Codable {
         return Utilities.filterForEmptyStrings(allMeasurements)
     }
     
+    var ingredientsWithMeasurements: [String] {
+        return Utilities.concatenate(firstArray: measurements, secondArray: ingredients, with: ", ")
+    }
+    
     var source: String?
     var sourceURL: URL? {
         guard let source = source else { return nil }
