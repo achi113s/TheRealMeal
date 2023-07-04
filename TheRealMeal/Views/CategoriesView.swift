@@ -11,7 +11,7 @@ struct CategoriesView: View {
     private var url: URL? = URL(string: "https://www.themealdb.com/api/json/v1/1/categories.php")
     
     @State private var categories: [Category] = [Category]()
-    private var onlyShowDesserts = true
+    private var onlyShowDesserts = false
     
     var body: some View {
         NavigationView {
@@ -45,9 +45,9 @@ struct CategoriesView: View {
                     let downloaded: Categories? = await Utilities.fetch(type: Categories.self, from: url)
                     if let downloaded = downloaded {
                         if onlyShowDesserts {
-                            categories = downloaded.categories.filter({ $0.categoryName == "Dessert" })
+                            categories = downloaded.categories.filter({ $0.categoryName == "Dessert" }).sorted()
                         } else {
-                            categories = downloaded.categories
+                            categories = downloaded.categories.sorted()
                         }
                     }
                 }

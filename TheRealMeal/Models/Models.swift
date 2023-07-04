@@ -83,6 +83,10 @@ struct MealFullDesc: Identifiable, Codable {
         case measurement18 = "strMeasure18"
         case measurement19 = "strMeasure19"
         case measurement20 = "strMeasure20"
+        
+        case source = "strSource"
+        case imageSource = "strImageSource"
+        case creativeCommonsConfirmed = "strCreativeCommonsConfirmed"
     }
     
     var id: String
@@ -150,13 +154,32 @@ struct MealFullDesc: Identifiable, Codable {
     var measurement18: String
     var measurement19: String
     var measurement20: String
+    var measurements: [String] {
+        let allMeasurements = [measurement1, measurement2, measurement3, measurement4,
+                               measurement5, measurement6, measurement7, measurement8,
+                               measurement9, measurement10, measurement11, measurement12,
+                               measurement13, measurement14, measurement15, measurement16,
+                               measurement17, measurement18, measurement19, measurement20]
+        return Utilities.filterForEmptyStrings(allMeasurements)
+    }
+    
+    var source: String
+    var sourceURL: URL? {
+        return URL(string: source)
+    }
+    var imageSource: String
+    var imageSourceURL: URL? {
+        return URL(string: imageSource)
+    }
+    var creativeCommonsConfirmed: String?
+    var dateModified: String?
 }
 
 struct Categories: Codable {
     var categories: [Category]
 }
 
-struct Category: Identifiable, Codable {
+struct Category: Identifiable, Codable, Comparable {
     enum CodingKeys: String, CodingKey {
         case id = "idCategory"
         case categoryName = "strCategory"
@@ -171,6 +194,10 @@ struct Category: Identifiable, Codable {
         return URL(string: categoryThumbnail)
     }
     var description: String
+    
+    static func <(lhs: Category, rhs: Category) -> Bool {
+        return lhs.categoryName < rhs.categoryName
+    }
 }
 
 struct ExampleData {
