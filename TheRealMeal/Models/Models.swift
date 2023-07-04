@@ -129,6 +129,10 @@ struct MealFullDesc: Identifiable, Codable {
         return URL(string: mealThumbnail)
     }
     var tags: String?
+    var tagsFormatted: String {
+        guard let tags = tags else { return "" }
+        return tags.split(separator: ",").joined(separator: ", ")
+    }
     var youtube: String
     var youtubeURL: URL? {
         return URL(string: youtube)

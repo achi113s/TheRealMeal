@@ -15,34 +15,49 @@ struct MealDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                AsyncImage(url: mealDetailViewModel.mealFullDesc?.mealThumbnailURL) { imagePhase in
-                    if let image = imagePhase.image {
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                    } else if imagePhase.error != nil {
-                        Image(systemName: "fork.knife")
-                            .frame(width: Utilities.thumbnailSize, height: Utilities.thumbnailSize)
-                    } else {
-                        ProgressView()
+                HStack {
+                    AsyncImage(url: mealDetailViewModel.mealFullDesc?.mealThumbnailURL) { imagePhase in
+                        if let image = imagePhase.image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity, maxHeight: 200)
+                        } else if imagePhase.error != nil {
+                            Image(systemName: "fork.knife")
+                                .frame(width: Utilities.thumbnailSize, height: Utilities.thumbnailSize)
+                        } else {
+                            ProgressView()
+                        }
+                    }
+                    .padding(.bottom)
+                    .accessibilityLabel("Image of \(mealName)")
+                    
+                    if let mealFullDesc = mealDetailViewModel.mealFullDesc {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text("Category: \(mealFullDesc.category)")
+                            Text("Origin: \(mealFullDesc.origin)")
+                            Text("Tags: \(mealFullDesc.tagsFormatted)")
+                        }
                     }
                 }
-                .padding(.bottom)
-                .accessibilityLabel("Image of \(mealName)")
                 
                 if let mealFullDesc = mealDetailViewModel.mealFullDesc {
-                    Text("Ingredients")
-                        .font(.title2)
-                        .underline()
-                    ForEach(mealFullDesc.ingredientsWithMeasurements, id: \.self) { item in
-                        Text("• \(item)")
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Ingredients")
+                            .font(.title2)
+                            .underline()
+                        ForEach(mealFullDesc.ingredientsWithMeasurements, id: \.self) { item in
+                            Text("• \(item)")
+                        }
                     }
+                    .padding(.bottom)
                     
-                    Text("\nInstructions")
-                        .font(.title2)
-                        .underline()
-                    Text("\(mealFullDesc.instructions)")
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Instructions")
+                            .font(.title2)
+                            .underline()
+                        Text("\(mealFullDesc.instructions)")
+                    }
                 }
             }
         }

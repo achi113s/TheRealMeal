@@ -50,6 +50,6 @@ struct MealsView: View {
 
 struct MealsView_Previews: PreviewProvider {
     static var previews: some View {
-        MealsView(categoryName: "Dessert")
+        MealsView(categoryName: ExampleData.category.categoryName)
     }
 }
