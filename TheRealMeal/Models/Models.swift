@@ -7,6 +7,31 @@
 
 import Foundation
 
+struct Categories: Codable {
+    var categories: [Category]
+}
+
+struct Category: Identifiable, Codable, Comparable {
+    enum CodingKeys: String, CodingKey {
+        case id = "idCategory"
+        case categoryName = "strCategory"
+        case categoryThumbnail = "strCategoryThumb"
+        case description = "strCategoryDescription"
+    }
+    
+    var id: String
+    var categoryName: String
+    var categoryThumbnail: String
+    var categoryThumbnailURL: URL? {
+        return URL(string: categoryThumbnail)
+    }
+    var description: String
+    
+    static func <(lhs: Category, rhs: Category) -> Bool {
+        return lhs.categoryName < rhs.categoryName
+    }
+}
+
 struct Meals: Codable {
     var meals: [Meal]
 }
@@ -30,6 +55,10 @@ struct Meal: Identifiable, Codable, Comparable {
     }
 }
 
+struct MealFullDescs: Codable {
+    var meals: [MealFullDesc]
+}
+
 struct MealFullDesc: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case id = "idMeal"
@@ -37,7 +66,7 @@ struct MealFullDesc: Identifiable, Codable {
         case drinkAlternate = "strDrinkAlternate"
         case category = "strCategory"
         case origin = "strArea"
-        case instructions = "strInstruction"
+        case instructions = "strInstructions"
         case mealThumbnail = "strMealThumb"
         case tags = "strTags"
         case youtube = "strYoutube"
@@ -105,26 +134,26 @@ struct MealFullDesc: Identifiable, Codable {
         return URL(string: youtube)
     }
     
-    var ingredient1: String
-    var ingredient2: String
-    var ingredient3: String
-    var ingredient4: String
-    var ingredient5: String
-    var ingredient6: String
-    var ingredient7: String
-    var ingredient8: String
-    var ingredient9: String
-    var ingredient10: String
-    var ingredient11: String
-    var ingredient12: String
-    var ingredient13: String
-    var ingredient14: String
-    var ingredient15: String
-    var ingredient16: String
-    var ingredient17: String
-    var ingredient18: String
-    var ingredient19: String
-    var ingredient20: String
+    var ingredient1: String?
+    var ingredient2: String?
+    var ingredient3: String?
+    var ingredient4: String?
+    var ingredient5: String?
+    var ingredient6: String?
+    var ingredient7: String?
+    var ingredient8: String?
+    var ingredient9: String?
+    var ingredient10: String?
+    var ingredient11: String?
+    var ingredient12: String?
+    var ingredient13: String?
+    var ingredient14: String?
+    var ingredient15: String?
+    var ingredient16: String?
+    var ingredient17: String?
+    var ingredient18: String?
+    var ingredient19: String?
+    var ingredient20: String?
     var ingredients: [String] {
         let allIngredients = [ingredient1, ingredient2, ingredient3, ingredient4,
                               ingredient5, ingredient6, ingredient7, ingredient8,
@@ -134,26 +163,26 @@ struct MealFullDesc: Identifiable, Codable {
         return Utilities.filterForEmptyStrings(allIngredients)
     }
 
-    var measurement1: String
-    var measurement2: String
-    var measurement3: String
-    var measurement4: String
-    var measurement5: String
-    var measurement6: String
-    var measurement7: String
-    var measurement8: String
-    var measurement9: String
-    var measurement10: String
-    var measurement11: String
-    var measurement12: String
-    var measurement13: String
-    var measurement14: String
-    var measurement15: String
-    var measurement16: String
-    var measurement17: String
-    var measurement18: String
-    var measurement19: String
-    var measurement20: String
+    var measurement1: String?
+    var measurement2: String?
+    var measurement3: String?
+    var measurement4: String?
+    var measurement5: String?
+    var measurement6: String?
+    var measurement7: String?
+    var measurement8: String?
+    var measurement9: String?
+    var measurement10: String?
+    var measurement11: String?
+    var measurement12: String?
+    var measurement13: String?
+    var measurement14: String?
+    var measurement15: String?
+    var measurement16: String?
+    var measurement17: String?
+    var measurement18: String?
+    var measurement19: String?
+    var measurement20: String?
     var measurements: [String] {
         let allMeasurements = [measurement1, measurement2, measurement3, measurement4,
                                measurement5, measurement6, measurement7, measurement8,
@@ -163,41 +192,18 @@ struct MealFullDesc: Identifiable, Codable {
         return Utilities.filterForEmptyStrings(allMeasurements)
     }
     
-    var source: String
+    var source: String?
     var sourceURL: URL? {
+        guard let source = source else { return nil }
         return URL(string: source)
     }
-    var imageSource: String
+    var imageSource: String?
     var imageSourceURL: URL? {
+        guard let imageSource = imageSource else { return nil }
         return URL(string: imageSource)
     }
     var creativeCommonsConfirmed: String?
     var dateModified: String?
-}
-
-struct Categories: Codable {
-    var categories: [Category]
-}
-
-struct Category: Identifiable, Codable, Comparable {
-    enum CodingKeys: String, CodingKey {
-        case id = "idCategory"
-        case categoryName = "strCategory"
-        case categoryThumbnail = "strCategoryThumb"
-        case description = "strCategoryDescription"
-    }
-    
-    var id: String
-    var categoryName: String
-    var categoryThumbnail: String
-    var categoryThumbnailURL: URL? {
-        return URL(string: categoryThumbnail)
-    }
-    var description: String
-    
-    static func <(lhs: Category, rhs: Category) -> Bool {
-        return lhs.categoryName < rhs.categoryName
-    }
 }
 
 struct ExampleData {

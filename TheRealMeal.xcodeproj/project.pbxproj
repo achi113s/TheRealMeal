@@ -112,9 +112,9 @@
 				4434628D2A532DD200F59043 /* Models */,
 				445C532D2A53780E000CF2BB /* Views */,
 				445C532E2A53781C000CF2BB /* ViewModels */,
+				445C53272A534979000CF2BB /* Utilities.swift */,
 				4418650C2A5327B4001E0BDF /* Assets.xcassets */,
 				4418650E2A5327B4001E0BDF /* Preview Content */,
-				445C53272A534979000CF2BB /* Utilities.swift */,
 			);
 			path = TheRealMeal;
 			sourceTree = "<group>";

@@ -8,26 +8,23 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    private var url: URL? = URL(string: "https://www.themealdb.com/api/json/v1/1/categories.php")
-    
-    @State private var categories: [Category] = [Category]()
-    private var onlyShowDesserts = false
+    @StateObject var categoriesViewModel: CategoriesViewModel = CategoriesViewModel()
     
     var body: some View {
         NavigationView {
-            List(categories, id: \.id) { category in
-                NavigationLink(destination: MealsView(category: category)) {
+            List(categoriesViewModel.categories, id: \.id) { category in
+                NavigationLink(destination: MealsView(categoryName: category.categoryName)) {
                     HStack {
                         AsyncImage(url: category.categoryThumbnailURL) { imagePhase in
                             if let image = imagePhase.image {
                                 image
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 50, height: 50)
+                                    .frame(width: Utilities.thumbnailSize, height: Utilities.thumbnailSize)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else if imagePhase.error != nil {
                                 Image(systemName: "fork.knife")
-                                    .frame(width: 50, height: 50)
+                                    .frame(width: Utilities.thumbnailSize, height: Utilities.thumbnailSize)
                             } else {
                                 ProgressView()
                             }
@@ -41,16 +38,7 @@ struct CategoriesView: View {
                 }
             }
             .task {
-                if let url = url {
-                    let downloaded: Categories? = await Utilities.fetch(type: Categories.self, from: url)
-                    if let downloaded = downloaded {
-                        if onlyShowDesserts {
-                            categories = downloaded.categories.filter({ $0.categoryName == "Dessert" }).sorted()
-                        } else {
-                            categories = downloaded.categories.sorted()
-                        }
-                    }
-                }
+                await categoriesViewModel.fetchCategories()
             }
             .navigationTitle("Meal Categories")
         }

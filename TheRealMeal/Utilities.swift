@@ -8,6 +8,9 @@
 import Foundation
 
 struct Utilities {
+    /// Dimension for the thumbnail images.
+    static let thumbnailSize: CGFloat = 50
+    
     /// A generic utility function for fetching data from an API endpoint.
     /// - Parameter type: A type, T, that conforms to the Decodable protocol.
     /// - Parameter url: The URL of the API endpoint.
@@ -25,13 +28,15 @@ struct Utilities {
         return nil
     }
     
-    /// Filters an array of strings and returns an array of the non-empty strings.
-    /// - Parameter arr: An array of strings.
+    /// Filters an array of string options and returns an array of unwrapped, non-empty strings.
+    /// - Parameter arr: An array of string optionals.
     /// - Returns [String]: The filtered array.
-    static public func filterForEmptyStrings(_ arr: Array<String>) -> Array<String> {
-        if arr.isEmpty { return arr }
+    static public func filterForEmptyStrings(_ arr: Array<String?>) -> Array<String> {
+        if arr.isEmpty { return [String]() }
         
-        return arr.filter { str in
+        let noOpts = arr.compactMap({ $0 })
+        
+        return noOpts.filter { str in
             let trimmed = str.trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmed != ""
         }

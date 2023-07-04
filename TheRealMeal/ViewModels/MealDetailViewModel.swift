@@ -7,8 +7,27 @@
 
 import Foundation
 
-@MainActor class MealDetailViewModel: ObservableObject {
-//    private var url: URL? {
-//        return URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=\(category.categoryName)")
-//    }
+extension MealDetailView {
+    @MainActor class MealDetailViewModel: ObservableObject {
+        var mealID: String
+        
+        private var url: URL? {
+            return URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)")
+        }
+        
+        @Published var mealFullDesc: MealFullDesc?
+        
+        init(mealID: String) {
+            self.mealID = mealID
+        }
+        
+        func fetchMealFullDesc() async {
+            guard let url = url else { return }
+            let downloaded: MealFullDescs? = await Utilities.fetch(type: MealFullDescs.self, from: url)
+            
+            if let downloaded = downloaded {
+                mealFullDesc = downloaded.meals.first
+            }
+        }
+    }
 }
