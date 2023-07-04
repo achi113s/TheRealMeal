@@ -11,7 +11,7 @@
 		4418650B2A5327B3001E0BDF /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4418650A2A5327B3001E0BDF /* CategoriesView.swift */; };
 		4418650D2A5327B4001E0BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4418650C2A5327B4001E0BDF /* Assets.xcassets */; };
 		441865102A5327B4001E0BDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4418650F2A5327B4001E0BDF /* Preview Assets.xcassets */; };
-		4418651A2A5327B4001E0BDF /* TheRealMealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865192A5327B4001E0BDF /* TheRealMealTests.swift */; };
+		4418651A2A5327B4001E0BDF /* TheRealMealUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865192A5327B4001E0BDF /* TheRealMealUtilityTests.swift */; };
 		441865242A5327B4001E0BDF /* TheRealMealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865232A5327B4001E0BDF /* TheRealMealUITests.swift */; };
 		441865262A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441865252A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift */; };
 		443462932A53406A00F59043 /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443462922A53406A00F59043 /* MealsView.swift */; };
@@ -47,7 +47,7 @@
 		4418650C2A5327B4001E0BDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4418650F2A5327B4001E0BDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		441865152A5327B4001E0BDF /* TheRealMealTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheRealMealTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		441865192A5327B4001E0BDF /* TheRealMealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealTests.swift; sourceTree = "<group>"; };
+		441865192A5327B4001E0BDF /* TheRealMealUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealUtilityTests.swift; sourceTree = "<group>"; };
 		4418651F2A5327B4001E0BDF /* TheRealMealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheRealMealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		441865232A5327B4001E0BDF /* TheRealMealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealUITests.swift; sourceTree = "<group>"; };
 		441865252A5327B4001E0BDF /* TheRealMealUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheRealMealUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 		441865182A5327B4001E0BDF /* TheRealMealTests */ = {
 			isa = PBXGroup;
 			children = (
-				441865192A5327B4001E0BDF /* TheRealMealTests.swift */,
+				441865192A5327B4001E0BDF /* TheRealMealUtilityTests.swift */,
 			);
 			path = TheRealMealTests;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4418651A2A5327B4001E0BDF /* TheRealMealTests.swift in Sources */,
+				4418651A2A5327B4001E0BDF /* TheRealMealUtilityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,11 +29,13 @@ struct CategoriesView: View {
                                 ProgressView()
                             }
                         }
+                        .accessibilityHidden(true)
                         
                         VStack {
                             Text("\(category.categoryName)")
                                 .font(.title)
                         }
+                        .accessibilityLabel("Show meals in \(category.categoryName) category.")
                     }
                 }
             }

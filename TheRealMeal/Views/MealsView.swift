@@ -29,6 +29,8 @@ struct MealsView: View {
                             ProgressView()
                         }
                     }
+                    .accessibilityHidden(true)
+                    
                     Text("\(meal.mealName)")
                         .font(.body)
                 }

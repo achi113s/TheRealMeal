@@ -46,7 +46,7 @@ struct Utilities {
         return nil
     }
     
-    /// Filters an array of string options and returns an array of unwrapped, non-empty strings.
+    /// Filters an array of string optionals and returns an array of unwrapped, non-empty strings.
     /// - Parameter arr: An array of string optionals.
     /// - Returns [String]: The filtered array.
     static public func filterForEmptyStrings(_ arr: Array<String?>) -> Array<String> {

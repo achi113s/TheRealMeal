@@ -13,7 +13,8 @@ extension CategoriesView {
         
         @Published var categories: [Category]
         
-        private var onlyShowDesserts = false
+        // Change to false to show all meal categories.
+        private var onlyShowDesserts = true
         
         init() {
             self.categories = [Category]()
@@ -30,10 +31,6 @@ extension CategoriesView {
                     categories = downloaded.categories.sorted()
                 }
             }
-        }
-        
-        func toggleOnlyShowDesserts() {
-            onlyShowDesserts.toggle()
         }
     }
 }
