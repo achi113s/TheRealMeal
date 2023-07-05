@@ -42,7 +42,7 @@ struct CategoriesView: View {
             .task {
                 await categoriesViewModel.fetchCategories()
             }
-            .navigationTitle("Meal Categories")
+            .navigationTitle("TheRealMeal")
         }
     }
 }
