@@ -13,6 +13,8 @@ The app fetches all categories of meals from TheMealDB and displays them with th
 
 When a user selects a category, they are shown an alphabetized list of meals, and when they select a meal, they are shown a detail view which includes: the meal name, instructions, ingredients/measurements, a picture, etc.
 
+The MealsView is searchable, just swipe down to show the search bar. Results are filtered by meal name.
+
 I did not find much documentation on which meal properties could be null, so I assumed that some of them will always have a value, such as the meal ID and name.
 
 You should just be able to download the repo and run it with Xcode.

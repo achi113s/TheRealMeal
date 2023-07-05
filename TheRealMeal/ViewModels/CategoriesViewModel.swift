@@ -14,7 +14,7 @@ extension CategoriesView {
         @Published var categories: [Category]
         
         // Change to false to show all meal categories.
-        private var onlyShowDesserts = true
+        private var onlyShowDesserts = false
         
         init() {
             self.categories = [Category]()

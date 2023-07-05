@@ -60,8 +60,8 @@ struct MealDetailView: View {
                     }
                 }
             }
+            .padding([.leading, .trailing])
         }
-        .padding([.leading, .trailing])
         .navigationTitle(mealName)
         .task {
             await mealDetailViewModel.fetchMealFullDesc()
