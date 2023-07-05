@@ -17,9 +17,15 @@ The MealsView is searchable, just swipe down to show the search bar. Results are
 
 I did not find much documentation on which meal properties could be null, so I assumed that some of them will always have a value, such as the meal ID and name.
 
+I wrote a couple of unit tests on some utility functions I made. These are in TheRealMealUtilityTests.swift.
+
 You should just be able to download the repo and run it with Xcode.
 
 Mockup on an iPhone 13 Pro running iOS 15.0:
 
+![Mockup](https://github.com/achi113s/TheRealMeal/blob/main/ReadmeResources/mockupRecording.gif)
 
+Mockup Showing Searchable View:
+
+![Searchable](https://github.com/achi113s/TheRealMeal/blob/main/ReadmeResources/searchable.gif)
 
