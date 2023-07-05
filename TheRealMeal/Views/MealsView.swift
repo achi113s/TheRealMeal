@@ -9,10 +9,19 @@ import SwiftUI
 
 struct MealsView: View {
     var categoryName: String
+    
     @StateObject var mealsViewModel: MealsViewModel
+    @State private var searchText = ""
+    var filteredMeals: [Meal] {
+        if searchText.isEmpty {
+            return mealsViewModel.meals
+        } else {
+            return mealsViewModel.meals.filter( { $0.mealName.contains(searchText) })
+        }
+    }
     
     var body: some View {
-        List(mealsViewModel.meals, id: \.id) { meal in
+        List(filteredMeals, id: \.id) { meal in
             NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.mealName)) {
                 HStack {
                     AsyncImage(url: meal.mealThumbnailURL) { imagePhase in
@@ -40,6 +49,7 @@ struct MealsView: View {
             await mealsViewModel.fetchMeals()
         }
         .navigationTitle("\(categoryName)")
+        .searchable(text: $searchText, prompt: "e.g. Tart")
     }
     
     init(categoryName: String = "Dessert") {
