@@ -8,21 +8,17 @@
 import Foundation
 
 extension CategoriesView {
-    @MainActor class CategoriesViewModel: ObservableObject {
+    @MainActor class CategoriesViewModel: MealDBViewModel, ObservableObject {
         private let url: URL? = URL(string: "https://www.themealdb.com/api/json/v1/1/categories.php")
         
-        @Published var categories: [Category]
+        @Published var categories: [Category] = [Category]()
         
         // Change to false to show all meal categories.
         private var onlyShowDesserts = true
         
-        init() {
-            self.categories = [Category]()
-        }
-        
         func fetchCategories() async {
             guard let url = url else { return }
-            let downloaded: Categories? = await Utilities.fetch(type: Categories.self, from: url)
+            let downloaded: Categories? = await fetch(type: Categories.self, from: url)
             
             if let downloaded = downloaded {
                 if onlyShowDesserts {

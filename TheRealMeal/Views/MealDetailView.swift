@@ -41,7 +41,7 @@ struct MealDetailView: View {
                     }
                 }
                 
-                if let mealFullDesc = mealDetailViewModel.mealFullDesc {
+                if var mealFullDesc = mealDetailViewModel.mealFullDesc {
                     VStack(alignment: .leading, spacing: 3) {
                         Text("Ingredients")
                             .font(.title2)

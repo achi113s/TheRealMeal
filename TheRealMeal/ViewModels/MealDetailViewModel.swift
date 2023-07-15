@@ -8,7 +8,7 @@
 import Foundation
 
 extension MealDetailView {
-    @MainActor class MealDetailViewModel: ObservableObject {
+    @MainActor class MealDetailViewModel: MealDBViewModel, ObservableObject {
         var mealID: String
         
         private var url: URL? {
@@ -23,7 +23,7 @@ extension MealDetailView {
         
         func fetchMealFullDesc() async {
             guard let url = url else { return }
-            let downloaded: MealFullDescs? = await Utilities.fetch(type: MealFullDescs.self, from: url)
+            let downloaded: MealFullDescs? = await fetch(type: MealFullDescs.self, from: url)
             
             if let downloaded = downloaded {
                 mealFullDesc = downloaded.meals.first

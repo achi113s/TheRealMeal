@@ -21,6 +21,7 @@
 		445C53322A53788D000CF2BB /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C53312A53788D000CF2BB /* MealsViewModel.swift */; };
 		445C53342A537898000CF2BB /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C53332A537898000CF2BB /* MealDetailViewModel.swift */; };
 		4481BF532A53828100F772EF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481BF522A53828100F772EF /* Models.swift */; };
+		44925A322A6329B1007F86DF /* MealDBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44925A312A6329B1007F86DF /* MealDBViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		445C53312A53788D000CF2BB /* MealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModel.swift; sourceTree = "<group>"; };
 		445C53332A537898000CF2BB /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 		4481BF522A53828100F772EF /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		44925A312A6329B1007F86DF /* MealDBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDBViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				445C532F2A537853000CF2BB /* CategoriesViewModel.swift */,
 				445C53312A53788D000CF2BB /* MealsViewModel.swift */,
 				445C53332A537898000CF2BB /* MealDetailViewModel.swift */,
+				44925A312A6329B1007F86DF /* MealDBViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				445C53282A534979000CF2BB /* Utilities.swift in Sources */,
+				44925A322A6329B1007F86DF /* MealDBViewModel.swift in Sources */,
 				445C532C2A534DC0000CF2BB /* MealDetailView.swift in Sources */,
 				443462932A53406A00F59043 /* MealsView.swift in Sources */,
 				4418650B2A5327B3001E0BDF /* CategoriesView.swift in Sources */,
@@ -469,6 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TheRealMeal/Preview Content\"";
+				DEVELOPMENT_TEAM = E24P6RF94S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -498,6 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TheRealMeal/Preview Content\"";
+				DEVELOPMENT_TEAM = E24P6RF94S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

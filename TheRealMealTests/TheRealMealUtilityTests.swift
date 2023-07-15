@@ -8,6 +8,8 @@
 import XCTest
 @testable import TheRealMeal
 
+// other things to test, sorting to make sure things are sorted correctly
+
 final class TheRealMealUtilityTests: XCTestCase {
     // Test static func filterForEmptyStrings(_ arr: Array<String?>) -> Array<String>
     func testSuccessfulEmptyStringsFilter() {

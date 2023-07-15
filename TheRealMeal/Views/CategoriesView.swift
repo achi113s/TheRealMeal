@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+// Thread locking done my MainActor
+// NSLocks in ConsciousCart
+// HostingController -> memory intensive if you have a lot
+
 struct CategoriesView: View {
     @StateObject var categoriesViewModel: CategoriesViewModel = CategoriesViewModel()
     

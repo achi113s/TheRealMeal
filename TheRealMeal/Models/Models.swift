@@ -7,6 +7,9 @@
 
 import Foundation
 
+
+// separating into new files for organization and readability
+
 struct Categories: Codable {
     var categories: [Category]
 }
@@ -158,14 +161,19 @@ struct MealFullDesc: Identifiable, Codable {
     var ingredient18: String?
     var ingredient19: String?
     var ingredient20: String?
-    var ingredients: [String] {
+    // computationally expensive, use lazy to compute once
+    // loop through keys, dynamic CodingKeys (struct) gives access to things like an initializer, init from decoder
+    // write your own decoding method, that way we can get an arbitrary number of ingredients and decode it ourselves
+    lazy var ingredients: [String] = {
         let allIngredients = [ingredient1, ingredient2, ingredient3, ingredient4,
                               ingredient5, ingredient6, ingredient7, ingredient8,
                               ingredient9, ingredient10, ingredient11, ingredient12,
                               ingredient13, ingredient14, ingredient15, ingredient16,
                               ingredient17, ingredient18, ingredient19, ingredient20]
         return Utilities.filterForEmptyStrings(allIngredients)
-    }
+    }()
+    // can do this as a lazy variable and pass in a closure so that this will only execute once
+    // when it's initialized rather than being recomputed all the time
 
     var measurement1: String?
     var measurement2: String?
@@ -196,9 +204,9 @@ struct MealFullDesc: Identifiable, Codable {
         return Utilities.filterForEmptyStrings(allMeasurements)
     }
     
-    var ingredientsWithMeasurements: [String] {
+    lazy var ingredientsWithMeasurements: [String] = {
         return Utilities.concatenate(firstArray: measurements, secondArray: ingredients, with: ", ")
-    }
+    }()
     
     var source: String?
     var sourceURL: URL? {

@@ -34,6 +34,9 @@ struct MealsView: View {
                         } else if imagePhase.error != nil {
                             Image(systemName: "fork.knife")
                                 .frame(width: Utilities.thumbnailSize, height: Utilities.thumbnailSize)
+                                .onAppear {
+                                    print(imagePhase.error)
+                                }
                         } else {
                             ProgressView()
                         }
