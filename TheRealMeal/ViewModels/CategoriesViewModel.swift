@@ -13,20 +13,45 @@ extension CategoriesView {
         
         @Published var categories: [Category] = [Category]()
         
+        private var networkManager: any NetworkManagerProtocol
+
         // Change to false to show all meal categories.
         private var onlyShowDesserts = true
         
+        init(networkManager: any NetworkManagerProtocol = NetworkManager()) {
+            self.networkManager = networkManager
+        }
+
         func fetchCategories() async {
             guard let url = url else { return }
-            let downloaded: Categories? = await fetch(type: Categories.self, from: url)
-            
-            if let downloaded = downloaded {
-                if onlyShowDesserts {
-                    categories = downloaded.categories.filter({ $0.categoryName == "Dessert" }).sorted()
+            let downloaded: Categories? = await networkManager.fetch(type: Categories.self, from: url)
+
+            if let downloaded {
+                categories = if onlyShowDesserts {
+                    downloaded.categories.filter({ $0.categoryName == "Dessert" }).sorted()
                 } else {
-                    categories = downloaded.categories.sorted()
+                    downloaded.categories.sorted()
                 }
             }
         }
     }
+}
+
+class NetworkManager: NetworkManagerProtocol {
+    public func fetch<T: Decodable>(type: T.Type, from url: URL) async -> T? {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+
+            let decoder = JSONDecoder()
+            let decoded = try decoder.decode(T.self, from: data)
+            return decoded
+        } catch {
+            print("Unable to fetch and decode from \(url.absoluteString): \(error.localizedDescription)")
+        }
+        return nil
+    }
+}
+
+protocol NetworkManagerProtocol {
+    func fetch<T: Decodable>(type: T.Type, from url: URL) async -> T?
 }

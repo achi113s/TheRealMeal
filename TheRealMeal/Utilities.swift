@@ -16,19 +16,17 @@ struct Utilities {
     /// - Parameter secondArray: [String]
     /// - Parameter with separator: String
     static public func concatenate(firstArray: [String], secondArray: [String], with separator: String) -> [String] {
-        let firstCount = firstArray.count
-        guard firstCount == secondArray.count else { return [String]() }
-        
-        var newArr = [String]()
-        
-        for i in stride(from: 0, to: firstCount, by: 1) {
-            let newStr = firstArray[i] + separator + secondArray[i]
-            newArr.append(newStr)
+        guard firstArray.count == secondArray.count else { return [String]() }
+        // zip
+        let zippedArr: [(String, String)] = Array(zip(firstArray, secondArray))
+        // map
+        let formattedArr: [String] = zippedArr.map { pair in
+            return pair.0 + separator + pair.1
         }
-        
-        return newArr
+
+        return formattedArr
     }
-    
+
     // favoritedMeals: [String]  = [] use a SET!
     
     /// Filters an array of string optionals and returns an array of unwrapped, non-empty strings.
